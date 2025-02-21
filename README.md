@@ -1,63 +1,111 @@
-# Project Title
-Jitsu Flow
+# 🥋 Jitsu Flow  
 
-## Overview
+## 📌 Overview  
 
-Jiu Jitsu translates to gentle art. Unlike boxing and muay thai were reflexes and strength are the priority, Jiu Jitsu is more of a mind game where you need to relax and analyze the situation and your next steps. Like every grappling sports, beginning (takedown) to finish (submission) is a whole process and can be visualized with a high level flow chart.
+Jiu-Jitsu, often called the "gentle art," is a **strategic grappling martial art** that requires problem-solving and adaptability rather than brute strength. Unlike striking sports such as **boxing or Muay Thai**, where reflexes and power dominate, Jiu-Jitsu is about **flow, control, and technique**—a process that can be visualized from the beginning (**takedown**) to the finish (**submission**).  
 
-### Problem
+### 🎯 The Problem  
 
-As a beginner in the martial arts, you want to absorb as much information from every lesson you take, which of course will overwhelm you. As a person who remembers and organize thoughts by taking down notes, doing jiu jitsu is hard as you cannot really bring your pen and paper in the mats (that's weird). But even once you get home, writing down today's lesson on a notepad does not do your memory justice.
+For beginners, Jiu-Jitsu can be **overwhelming**. Each session is packed with techniques, transitions, and key details that are difficult to remember. **Traditional note-taking doesn’t fit the mats**—you can’t exactly pull out a notebook mid-roll. Even when writing down lessons afterward, notes often lack the structure to fully capture the depth of each technique.  
 
-I know there's a lot of apps, videos and blogs online already that explains the positions in jiu jitsu, but there really is none that allows you to take down the extra tips and details your coach told you. So we really want a note taking app that is dedicated for combat sports especially the grappling ones.
+While there are many **instructional videos, blogs, and apps** explaining techniques, none provide a **personalized way for students to document their progress, key insights from their coaches, and connect techniques into structured flows.**  
 
-#### User Profile
+### 🥋 The Solution  
 
-- Grappling Combat Artists
-    - that are considered beginners to the arts and want to take down notes
+**Jitsu Flow** is a **gym management and student learning platform** that enhances the training experience for both gym owners and students.  
 
-### Features
+- For **gyms**, it provides **membership management, scheduling, and announcements**.  
+- For **students**, it offers an **intelligent note-taking system** designed for combat sports, allowing them to **document techniques, track progress, and visualize transitions** in an intuitive way.  
 
-**Note Taking Features**
-- As a user, I want to go home after training and be able to write down the lesson efficiently
-- As a user, I want the ability to distiniguish what type of position (takedown, escape, positional dominance, submission) my notes are.
-- As a user, I want to be able to note the varieties of a certain position and their corresponding positional prerequisites and exits going to another position.
-- As a user, I want to be able to note down what are the counter/escapes.
-- As a user, I want to be able to see the list of notes/positions in an organized way
-- As a user, I want to be able to save the links of youtube videos/instagram reels as part of my notes.
-- As a user, I want to be able to upload my own photo, or video as part of my notes
-- As a user, I want to be able to edit the notes
+### 👥 Target Users  
 
-- idea - to add a comment feature for each position - for extra notes
-    - main page - all the major positions
+- **Beginners in Jiu-Jitsu or other grappling martial arts** who need a structured way to track their learning.  
+- **Students** who want to **document personal notes, counters, and transitions** beyond general online resources.  
+- **Instructors and gym owners** looking to improve communication and engagement with their students.  
 
-**Flow Making**
-- As a user, using the notes that I have taken, I want the ability to easily build a flowchart starting from a takedown or escape and finishing with a submisission.
-- As a user, I want to be able to have some type of dropdown list to select for each takedown or escape, positional dominance, submission.
-- As a user, I want to see a repository of all the flowcharts that I previously created and be able to edit or delete them.
-- As a user, I want the ability to click the flowchart items and be redirected to the corresponding notes. 
+---
 
-**External Links**
-- As a user, instead of seeing the long links, I want to replace them with shorter and more semantic clickable titles
-- As a user, I want to see previews of the video links or have the videos embedded
+## 🛠️ Features & Pages  
 
+### ✅ **Core Gym Management Features**  
+- **🏠 Home** – Announcements (e.g., events, promotions), educational content.  
+- **📇 Profile** – Attendance tracking, membership details, belt rank progression.  
+- **💰 Billing** – Payment and membership management.  
+- **📅 Schedule** – Class schedules and instructor availability.  
+- **🚪 Log out**  
 
-## Implementation
+### 📝 **Student-Centric Features (Sprint 1 MVP)**  
+- **✍️ Note-Taking App** – Organized notes for techniques and positional flows.  
+- **🔗 External Links** – Save and embed reference videos, blog links, or instructional content.  
+- **📌 Categorization** – Tag techniques by type (takedown, defense, positional control, submission).  
+- **📜 Version History** – Track how understanding evolves over time.  
+- **💬 Rolling Notes** – Add **sparring reflections** to track performance over multiple sessions.  
 
-### Tech Stack
+### 🔄 **Flow App (Future Feature)**  
+- **📈 Flowchart Creation** – Build **customized technique flowcharts** from takedowns to submissions.  
+- **📂 Repository** – Store and manage past flows for review and adjustments.  
+- **🔄 Interactive Navigation** – Click on flowchart items to access related notes.  
 
-- React
-- Express
-- MySQL
-- Client Libraries
-    - react
-    - react-router-dom
-    - react-modal
-    - axios
-- Server libraries:
-    - express
-    - knex
-    - mysql2
+---
+
+## 📖 MVP User Stories
+
+### 📝 **Note-Taking Features**  
+- 🥋 _"As a student, I want to document my lessons effectively so I don’t forget key details."_  
+- 🥋 _"As a student, I want to categorize my notes by position type for easier reference."_  
+- 🥋 _"As a student, I want to track variations of positions, including prerequisites and transitions."_  
+- 🥋 _"As a student, I want to save links to videos or upload my own for better visualization."_  
+
+### 💬 **Rolling Notes & Comments**  
+- 🥋 _"As a student, I want to track what worked and what didn’t in my sparring sessions."_  
+- 🥋 _"As a student, I want to categorize rolling notes by success, struggles, and adjustments."_  
+
+### 📌 **Organizational & Navigation**  
+- 🥋 _"As a student, I want a structured homepage to quickly navigate my notes."_  
+- 🥋 _"As a student, I want to link related positions together for a seamless learning experience."_  
+
+### 📈 **Flow Making (Future Feature)**  
+- 🥋 _"As a student, I want to create technique flowcharts to visualize sequences."_  
+- 🥋 _"As a student, I want to select techniques from a dropdown list when building a flowchart."_  
+- 🥋 _"As a student, I want to edit or delete my previously created flowcharts."_  
+
+---
+
+## 🎯 Sprint 1: MVP Focus  
+
+The **MVP** (Minimum Viable Product) focuses on the **note-taking feature** to provide immediate value to students while laying the foundation for gym management features.  
+
+✅ **Sprint 1 Deliverables:**  
+- 📝 Note-taking with categorized technique storage.  
+- 🔗 External link support for video references.  
+- 📌 Tagging & filtering by technique type.  
+- 💬 Rolling notes for sparring reflections.  
+
+---
+
+## 📢 Final Thoughts  
+
+Jitsu Flow is more than just a **gym management app**—it's a **training companion** that helps students **retain, structure, and apply** their lessons in Jiu-Jitsu. By focusing on **interactive note-taking and flow visualization**, this project aims to **enhance the way students learn and track their progression.**  
+
+🚀 **Sprint 1 is just the beginning**—future versions will expand into **flowcharting, auto-generated technique maps, and deeper gym management functionalities**.  
+
+## 🚀 Implementation  
+
+### 🏗️ **Tech Stack**  
+
+#### Frontend:  
+- **React** – User interface.  
+- **React Router** – Navigation.  
+- **Axios** – API requests.  
+- **React Modal** – Enhanced user interactions.  
+
+#### Backend:  
+- **Express.js** – API and server logic.  
+- **MySQL** – Database for storing notes, memberships, and user data.  
+- **Knex.js** – Query builder for database interactions.  
+- **MySQL2** – Efficient MySQL driver.  
+
+---
 
 ### APIs
     - No external APIs will be used for the first sprint
