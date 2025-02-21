@@ -1,2 +1,18 @@
 @use './variables' as *;
 @use './mixins' as *;
+
+h1, h2 {
+    @include text-header;
+}
+
+h3 {
+    @include text-subheader;
+}
+
+p, span {
+    @include text-body;
+}
+
+button, nav a {
+    @include text-button;
+}
