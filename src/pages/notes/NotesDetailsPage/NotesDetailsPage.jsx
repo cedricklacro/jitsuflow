@@ -1,4 +1,4 @@
-import React from 'react'
+import './NotesDetailsPage.scss';
 
 function NotesDetailsPage() {
   return (

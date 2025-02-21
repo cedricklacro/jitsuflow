@@ -1,4 +1,4 @@
-import React from 'react'
+import './NotesEditPage.scss';
 
 function NotesEditPage() {
   return (

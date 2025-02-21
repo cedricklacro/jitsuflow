@@ -1,4 +1,4 @@
-import React from 'react'
+import './NotesMenuPage.scss';
 
 function NotesMenuPage() {
   return (

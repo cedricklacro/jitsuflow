@@ -1,4 +1,4 @@
-import React from 'react'
+import './UnderConstructionPage.scss';
 
 function UnderConstructionPage() {
   return (
