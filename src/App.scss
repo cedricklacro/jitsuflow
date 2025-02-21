@@ -1,3 +1,17 @@
 @use './styles/partials/global' as *;
 @use './styles/partials/variables' as *;
 @use './styles/partials/mixins' as *;
+
+body {
+  font-family: $font-body;
+  color: $color-text-primary;
+  background-color: $color-background-primary;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
