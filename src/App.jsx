@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss'
-import UnderConstructionPage from './pages/UnderConstructionPage/UnderConstructionPage';
+import UnderConstructionPage from './pages/others/UnderConstructionPage/UnderConstructionPage';
 import NotesMenuPage from './pages/notes/NotesMenuPage/NotesMenuPage';
 import NotesAddPage from './pages/notes/NotesAddPage/NotesAddPage';
 import NotesDetailsPage from './pages/notes/NotesDetailsPage/NotesDetailsPage';
 import NotesEditPage from './pages/notes/NotesEditPage/NotesEditPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import NotFoundPage from './pages/others/NotFoundPage/NotFoundPage';
 function App() {
 
   return (
