@@ -1,0 +1,33 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.ReactModal__Overlay--after-open {
+    background-color: transparent !important;
+}
+
+.navmodal {
+    display: flex;
+    @include desktop {
+        display: none;
+    }
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-background-alt;
+        width: 100vw;
+        margin-top: 60px;
+        top: 60px;
+        height: calc(100vh - 60px);
+        z-index: 1050;
+    }
+    &__nav--mobile {
+        display: flex;
+        @include desktop {
+            display: none;
+        }
+    }
+}

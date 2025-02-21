@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.nav {
+    flex-direction: column;
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $color-border;
+        padding: 1rem;
+        letter-spacing: 0.164rem;
+        cursor: pointer;
+        @include text-nav;
+        &:hover, .active {
+            border-color: $color-accent-primary;
+            color: $color-text-alt;        
+        }
+    }
+}
+
+.active {
+    border-color: $color-accent-primary;
+    color: $color-text-alt;        
+}

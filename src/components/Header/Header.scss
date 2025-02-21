@@ -1,0 +1,53 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-background-alt;
+    border: 1px solid $color-border;
+    padding: 1rem;
+    width: 100%;
+    position: fixed;
+
+    @include desktop {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: fit-content;
+        height: 100vh;
+        padding: 0;
+        border-top-right-radius: 1.5rem;
+    }
+
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        @include desktop {
+            flex-direction: column;
+            padding: 1.5rem 0;
+            gap: 0.5rem;
+        }
+    }
+    &__logo {
+        height: 1.75rem;
+    }
+    &__title {
+        @include text-title;
+    }
+    &__nav {
+        &--mobile {
+            display: flex;
+            @include desktop {
+                display: none;
+            }
+        }
+        &--desktop {
+            display: none;
+            @include desktop {
+                display: flex;
+            }
+        }
+    }
+}
