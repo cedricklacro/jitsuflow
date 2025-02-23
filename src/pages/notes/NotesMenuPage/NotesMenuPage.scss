@@ -1,2 +1,45 @@
 @use '../../../styles/partials/variables' as *;
 @use '../../../styles/partials/mixins' as *;
+
+.menu {
+    display: flex;
+    flex-direction: column;
+
+    &__main-container {
+        display: flex;
+    }
+    &__categories-container {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        height: 40vh;
+        background-color: #cdcdcd;
+        border-bottom-right-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        width: 100%;
+        border: 1px solid $color-border;
+
+        @include desktop {
+            padding: 1rem 1rem 1rem 10.625rem;
+            flex-direction: column;
+            height: 100vh;
+            width: 40vw;
+            border-radius: 0;
+            border: 0;
+        }
+    }
+    &__cat-title {
+        @include text-body;
+    }
+    &__category-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    &__category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
