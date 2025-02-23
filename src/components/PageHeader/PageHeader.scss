@@ -4,8 +4,9 @@
 .page-header {
     
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 76px 0 1rem 1rem;
+    padding: 76px 1rem 1rem 1rem;
     background-color: white;
     gap: 1rem;
     @include text-header;
@@ -17,7 +18,25 @@
         padding-left: 170px;
         gap: 1.5rem;
     }
-    &__back {
+    &__left-container {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    &__icon {
         cursor: pointer;
+    }
+    &__add-container {
+        display: flex;
+        align-items: center;
+        gap:1rem;
+        cursor: pointer;
+    }
+    &__add-title {
+        display: none;
+        @include desktop {
+            display: flex;
+            letter-spacing: 3px;
+        }
     }
 }

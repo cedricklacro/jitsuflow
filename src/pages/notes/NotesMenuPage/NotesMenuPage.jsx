@@ -43,7 +43,7 @@ function NotesMenuPage() {
 
   return (
     <section className='menu'>
-      <PageHeader title="Jitsu Journal"/>
+      <PageHeader title="Jitsu Journal" type='notemenu'/>
       <main className='menu__main-container'>
         <div className='menu__categories-container'>
           <h2 className='menu__cat-title'>Categories</h2>
