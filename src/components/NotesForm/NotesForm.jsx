@@ -1,0 +1,218 @@
+import './NotesForm.scss';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import MultiSelectInput from '../MultiSelectInput/MultiSelectInput'; // Adjust the import path if needed
+
+function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
+  const [categories, setCategories] = useState([]);
+  const [allNoteTitles, setAllNoteTitles] = useState([]);
+  const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+  // Fetch categories and note title options concurrently
+  const getSelections = async () => {
+    try {
+      const [categoriesResponse, titlesResponse] = await Promise.all([
+        axios.get(`${baseUrl}/notes/categories`),
+        axios.get(`${baseUrl}/notes/titles`)
+      ]);
+      setCategories(categoriesResponse.data);
+      const titleOptions = titlesResponse.data.map(item => item.title);
+      setAllNoteTitles(titleOptions);
+    } catch (error) {
+      console.error('Error fetching note selections:', error);
+    }
+  };
+
+  useEffect(() => {
+    getSelections();
+  }, []);
+
+  // onSubmit handler: validates fields, builds updateData, then calls parent's handleSubmit
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (!itemData.title?.trim()) {
+      alert('Title cannot be empty');
+      return;
+    }
+    if (!itemData.category_id) {
+      alert('Please select a category');
+      return;
+    }
+
+    const updateData = {
+      title: itemData.title.trim(),
+      content: itemData.content,
+      category_id: parseInt(itemData.category_id, 10),
+      tags: itemData.tags || [],
+      entry_paths: itemData.paths?.entry || [],
+      exit_paths: itemData.paths?.exit || [],
+      counter_for: itemData.paths?.counter_for || [],
+      can_be_countered_by: itemData.paths?.can_be_countered_by || [],
+      user_id: 1 // hardcoded user id for now
+    };
+
+    handleSubmit(updateData);
+  };
+
+  return (
+    <div className="notes-form">
+      {/* Optional: you can include the PageHeader here as well if needed */}
+      <form className="notes-form__form" onSubmit={onFormSubmit}>
+        {/* Title Field */}
+        <div className="notes-form__field">
+          <label className="notes-form__label" htmlFor="title">Title*</label>
+          <input
+            type="text"
+            id="title"
+            className="notes-form__input"
+            value={itemData.title || ''}
+            onChange={(e) => setItemData({ ...itemData, title: e.target.value })}
+            required
+          />
+        </div>
+
+        {/* Category Field */}
+        <div className="notes-form__field">
+          <label className="notes-form__label" htmlFor="category">Category*</label>
+          <select
+            id="category"
+            className="notes-form__select"
+            value={itemData.category_id || ''}
+            onChange={(e) => setItemData({ ...itemData, category_id: e.target.value })}
+          >
+            <option value="">Select Category</option>
+            {categories.map((cat) => (
+              <option key={cat.category_id} value={cat.category_id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Content Field */}
+        <div className="notes-form__field">
+          <label className="notes-form__label" htmlFor="content">Content</label>
+          <textarea
+            id="content"
+            className="notes-form__textarea"
+            value={itemData.content || ''}
+            onChange={(e) => setItemData({ ...itemData, content: e.target.value })}
+          ></textarea>
+        </div>
+
+        {/* Tags Field */}
+        <MultiSelectInput
+          label="Tags"
+          placeholder="Add a tag"
+          options={[]} // No predefined suggestions for tags
+          selectedItems={itemData.tags || []}
+          onAddItem={(item) =>
+            setItemData({ ...itemData, tags: [...(itemData.tags || []), item] })
+          }
+          onRemoveItem={(item) =>
+            setItemData({ ...itemData, tags: (itemData.tags || []).filter(tag => tag !== item) })
+          }
+        />
+
+        {/* Entry Path Field */}
+        <MultiSelectInput
+          label="Entry Path"
+          placeholder="Add an entry path"
+          options={allNoteTitles}
+          selectedItems={itemData.paths?.entry || []}
+          onAddItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, entry: [...(itemData.paths?.entry || []), item] }
+            })
+          }
+          onRemoveItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, entry: (itemData.paths?.entry || []).filter(path => path !== item) }
+            })
+          }
+        />
+
+        {/* Exit Path Field */}
+        <MultiSelectInput
+          label="Exit Path"
+          placeholder="Add an exit path"
+          options={allNoteTitles}
+          selectedItems={itemData.paths?.exit || []}
+          onAddItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, exit: [...(itemData.paths?.exit || []), item] }
+            })
+          }
+          onRemoveItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, exit: (itemData.paths?.exit || []).filter(path => path !== item) }
+            })
+          }
+        />
+
+        {/* Counter For Field */}
+        <MultiSelectInput
+          label="Counter For"
+          placeholder="Add a counter for"
+          options={allNoteTitles}
+          selectedItems={itemData.paths?.counter_for || []}
+          onAddItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, counter_for: [...(itemData.paths?.counter_for || []), item] }
+            })
+          }
+          onRemoveItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, counter_for: (itemData.paths?.counter_for || []).filter(path => path !== item) }
+            })
+          }
+        />
+
+        {/* Can Be Countered By Field */}
+        <MultiSelectInput
+          label="Can Be Countered By"
+          placeholder="Add a countering note"
+          options={allNoteTitles}
+          selectedItems={itemData.paths?.can_be_countered_by || []}
+          onAddItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, can_be_countered_by: [...(itemData.paths?.can_be_countered_by || []), item] }
+            })
+          }
+          onRemoveItem={(item) =>
+            setItemData({
+              ...itemData,
+              paths: { ...itemData.paths, can_be_countered_by: (itemData.paths?.can_be_countered_by || []).filter(path => path !== item) }
+            })
+          }
+        />
+
+        {/* Buttons */}
+        <div className="notes-form__buttons">
+          <button
+            type="button"
+            className="notes-form__button notes-form__button--cancel"
+            onClick={() => navigate(-1)}
+          >
+            Cancel
+          </button>
+          <button className="notes-form__button notes-form__button--submit" type="submit">
+            {submitButtonText}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default NotesForm;
