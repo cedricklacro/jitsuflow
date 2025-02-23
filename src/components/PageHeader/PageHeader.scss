@@ -1,0 +1,23 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.page-header {
+    
+    display: flex;
+    align-items: center;
+    padding: 76px 0 1rem 1rem;
+    background-color: white;
+    gap: 1rem;
+    @include text-header;
+    @include desktop {
+        width: 100vw;
+        height: 80.91px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 170px;
+        gap: 1.5rem;
+    }
+    &__back {
+        cursor: pointer;
+    }
+}
