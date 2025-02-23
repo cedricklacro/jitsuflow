@@ -23,7 +23,7 @@ function NotesDetailsPage() {
   }
 
   useEffect(() => {
-    getNoteDetails();
+    getNoteDetails(params.noteid);
   }, [params.noteid]);
 
   return (
@@ -31,6 +31,10 @@ function NotesDetailsPage() {
       <PageHeader title={noteDetails.title} type="withback"/>
       <main className='note'>
         <img className='note__editicon' src={editicon} onClick={() => navigate(`/jitsujournal/${params.noteid}/edit`)} alt='edit icon' />
+        <span className='note__category-container'>
+          <h4 className='note__category-label'>Category</h4>
+          <p className='note__category'>{noteDetails.category_name}</p>
+        </span>
         <span className='note_content'>{noteDetails.content}</span>
         {noteDetails.tags && noteDetails.tags.map((tag, index) => (
           <li className='note__tags' key={index}>{tag}</li>
