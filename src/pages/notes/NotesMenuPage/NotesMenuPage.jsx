@@ -6,7 +6,7 @@ import PageHeader from '../../../components/PageHeader/PageHeader';
 
 function NotesMenuPage() {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [notesByCategory, setNotesByCategory] = useState([]);
   const baseUrl = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
@@ -19,8 +19,6 @@ function NotesMenuPage() {
       console.error("Error fetching note categories:", error);
     }
   };
-
-
 
   const getNotesByCategory = async () => {
     try {
@@ -43,18 +41,19 @@ function NotesMenuPage() {
 
   return (
     <section className='menu'>
-      <PageHeader title="Jitsu Journal" type='notemenu'/>
+      <PageHeader title="Jitsu Journal" type='notemenu' />
       <main className='menu__main-container'>
         <div className='menu__categories-container'>
           <h2 className='menu__cat-title'>Categories</h2>
           <ul className='menu__category-list'>
+          <li className='menu__category' onClick={() => setSelectedCategory('all')}>all notes</li>
             {categories.map((category) => (
               <li className='menu__category' key={category.category_id} onClick={() => setSelectedCategory(category.category_id)}>{category.name}</li>
             ))}
           </ul>
         </div>
         <div className='menu__notes-list'>
-        {selectedCategory ? (
+          {selectedCategory ? (
             notesByCategory.length > 0 ? (
               <ul>
                 {notesByCategory.map((note) => (
