@@ -36,7 +36,7 @@ function NotesDetailsPage() {
               <h4 className='note__category-label'>CATEGORY:</h4>
               <p className='note__label'>{noteDetails.category_name}</p>
             </span>
-            <span className='note__content'>{noteDetails.content}</span>
+            <span className='note__content' dangerouslySetInnerHTML={{ __html: noteDetails.content }} />
           </div>
           <div className='note__right-container'>
             <span className='note__tags-container'>

@@ -2,7 +2,8 @@ import './NotesForm.scss';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import MultiSelectInput from '../MultiSelectInput/MultiSelectInput'; // Adjust the import path if needed
+import MultiSelectInput from '../MultiSelectInput/MultiSelectInput';
+import RichTextEditor from '../RichTextEditor/RichTextEditor';
 
 function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
   const [categories, setCategories] = useState([]);
@@ -91,12 +92,17 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
 
         <div className="notes-form__field">
           <label className="notes-form__label" htmlFor="content">Content</label>
-          <textarea
+          {/* <textarea
             id="content"
             className="notes-form__textarea"
             value={itemData.content || ''}
             onChange={(e) => setItemData({ ...itemData, content: e.target.value })}
-          ></textarea>
+          ></textarea> */}
+          <RichTextEditor
+            className='notes-form__textarea'
+            value={itemData.content || ''}
+            onChange={(value) => setItemData({ ...itemData, content: value })}
+          />
         </div>
 
         <MultiSelectInput
