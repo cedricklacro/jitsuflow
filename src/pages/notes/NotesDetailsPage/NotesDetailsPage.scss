@@ -95,13 +95,12 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
-
-    .note__label {
-      font-family: $font-header;
-      font-weight: bold;
-      font-size: 1rem;
-      color: $color-text-primary;
-    }
+  }
+  &__label {
+    font-family: $font-header;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $color-text-primary;
   }
   
   &__tag {

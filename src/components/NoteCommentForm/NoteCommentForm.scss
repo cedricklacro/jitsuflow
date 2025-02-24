@@ -29,7 +29,8 @@
     &__label {
       display: block;
       margin-bottom: 1rem;
-      font-size: 0.875rem;
+      font-size: 1rem;
+      font-weight: 600;
       color: $color-text-primary;
   
       &--error {

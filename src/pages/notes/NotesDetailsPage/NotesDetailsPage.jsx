@@ -4,8 +4,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import PageHeader from '../../../components/PageHeader/PageHeader';
 import NoteCommentForm from '../../../components/NoteCommentForm/NoteCommentForm';
 import axios from 'axios';
-import editicon from '../../../assets/icons/edit-icon.svg'
-
 
 function NotesDetailsPage() {
   const [noteDetails, setNoteDetails] = useState({});
