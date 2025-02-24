@@ -1,0 +1,117 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.multi-select-input {
+    &__multiselect {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-family: $font-body;
+    }
+  
+    &__label {
+      font-family: $font-header;
+      font-size: 1rem;
+      color: $color-text-primary;
+      margin-bottom: 0.25rem;
+    }
+  
+    &__multiselect-input-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid $color-border;
+      border-radius: 4px;
+      font-size: 1rem;
+      color: $color-text-primary;
+      background-color: #fff;
+      transition: border-color 0.2s ease;
+  
+      &:focus {
+        outline: none;
+        border-color: $color-accent-alt;
+      }
+    }
+  
+    &__dropdown {
+      position: absolute;
+      top: calc(100% + 0.25rem);
+      left: 0;
+      right: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: $color-background-primary;
+      border: 1px solid $color-border;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      margin: 0;
+      padding: 0.25rem 0;
+      list-style: none;
+    }
+  
+    &__dropdown-item {
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      color: $color-text-primary;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: $color-background-alt;
+      }
+    }
+  
+    &__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        padding: 0.5rem;
+        background-color: $color-background-primary;
+        border-radius: 8px;
+        min-height: 40px;
+      }
+    
+      &__chip {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+        background-color: lighten($color-background-alt, 5%);
+        border: 1px solid darken($color-border, 5%);
+        border-radius: 16px;
+        padding: 0.1rem 0.5rem;
+        font-size: 0.875rem;
+        color: $color-text-primary;
+        font-weight: 500;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    
+        &:hover {
+          background-color: darken($color-background-alt, 5%);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+      }
+    
+      &__chip-remove {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1;
+        cursor: pointer;
+        color: $color-accent-primary;
+        transition: color 0.2s ease, transform 0.2s ease;
+    
+        &:hover {
+          color: darken($color-accent-primary, 15%);
+          transform: scale(1.2);
+        }
+      }    
+  }
+  

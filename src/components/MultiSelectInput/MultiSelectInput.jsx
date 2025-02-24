@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import './MultiSelectInput.scss'
 
 // MultiSelectInput Component
 // This component provides a text input with a dropdown list of suggestions (filtered based on the input).
