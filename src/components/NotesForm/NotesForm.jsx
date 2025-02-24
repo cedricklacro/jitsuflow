@@ -59,9 +59,7 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
 
   return (
     <div className="notes-form">
-      {/* Optional: you can include the PageHeader here as well if needed */}
       <form className="notes-form__form" onSubmit={onFormSubmit}>
-        {/* Title Field */}
         <div className="notes-form__field">
           <label className="notes-form__label" htmlFor="title">Title*</label>
           <input
@@ -74,7 +72,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           />
         </div>
 
-        {/* Category Field */}
         <div className="notes-form__field">
           <label className="notes-form__label" htmlFor="category">Category*</label>
           <select
@@ -92,7 +89,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           </select>
         </div>
 
-        {/* Content Field */}
         <div className="notes-form__field">
           <label className="notes-form__label" htmlFor="content">Content</label>
           <textarea
@@ -103,11 +99,10 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           ></textarea>
         </div>
 
-        {/* Tags Field */}
         <MultiSelectInput
           label="Tags"
           placeholder="Add a tag"
-          options={[]} // No predefined suggestions for tags
+          options={[]}
           selectedItems={itemData.tags || []}
           onAddItem={(item) =>
             setItemData({ ...itemData, tags: [...(itemData.tags || []), item] })
@@ -117,7 +112,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           }
         />
 
-        {/* Entry Path Field */}
         <MultiSelectInput
           label="Entry Path"
           placeholder="Add an entry path"
@@ -137,7 +131,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           }
         />
 
-        {/* Exit Path Field */}
         <MultiSelectInput
           label="Exit Path"
           placeholder="Add an exit path"
@@ -157,7 +150,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           }
         />
 
-        {/* Counter For Field */}
         <MultiSelectInput
           label="Counter For"
           placeholder="Add a counter for"
@@ -177,7 +169,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           }
         />
 
-        {/* Can Be Countered By Field */}
         <MultiSelectInput
           label="Can Be Countered By"
           placeholder="Add a countering note"
@@ -197,7 +188,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
           }
         />
 
-        {/* Buttons */}
         <div className="notes-form__buttons">
           <button
             type="button"
