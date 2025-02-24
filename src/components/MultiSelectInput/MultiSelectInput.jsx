@@ -1,9 +1,6 @@
 import {useState} from 'react'
 import './MultiSelectInput.scss'
 
-// MultiSelectInput Component
-// This component provides a text input with a dropdown list of suggestions (filtered based on the input).
-// Selected items are displayed as chips with an "x" to remove them.
 function MultiSelectInput ({ label, placeholder, options, selectedItems, onAddItem, onRemoveItem }) {
     const [inputValue, setInputValue] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
@@ -24,7 +21,6 @@ function MultiSelectInput ({ label, placeholder, options, selectedItems, onAddIt
       }
     };
   
-    // Filter the options based on input and remove any items that have already been selected
     const filteredOptions = options.filter(
       (option) =>
         option.toLowerCase().includes(inputValue.toLowerCase()) &&
@@ -43,7 +39,6 @@ function MultiSelectInput ({ label, placeholder, options, selectedItems, onAddIt
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             onBlur={() => {
-              // Delay hiding dropdown to allow click on options
               setTimeout(() => setShowDropdown(false), 100);
             }}
             onFocus={() => setShowDropdown(true)}

@@ -5,17 +5,16 @@ import axios from 'axios';
 const modules = {
   toolbar: {
     container: [
-      ['bold', 'italic', 'underline'], // Formatting
-      [{ list: 'ordered' }, { list: 'bullet' }], // Lists
-      ['link', 'image'], // Add Image Upload Button
+      ['bold', 'italic', 'underline'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image'],
     ],
     handlers: {
-      image: imageHandler, // Custom image handler
+      image: imageHandler,
     },
   },
 };
 
-// Custom Image Upload Handler
 function imageHandler() {
   const input = document.createElement('input');
   input.setAttribute('type', 'file');
@@ -30,15 +29,13 @@ function imageHandler() {
     formData.append('image', file);
 
     try {
-      // ✅ Upload image to backend API
       const response = await axios.post('http://localhost:8080/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      const imageUrl = response.data.url; // Get uploaded image URL
+      const imageUrl = response.data.url;
 
-      // ✅ Insert uploaded image into Quill editor
-      const quill = this.quill; // Access Quill instance
+      const quill = this.quill;
       const range = quill.getSelection();
       quill.insertEmbed(range.index, 'image', imageUrl);
     } catch (error) {

@@ -11,7 +11,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
-  // Fetch categories and note titles
   useEffect(() => {
     const getSelections = async () => {
       try {
@@ -28,14 +27,12 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
     getSelections();
   }, []);
 
-  // Ensure itemData.content is never undefined (Quill needs a valid string)
   const handleContentChange = (value) => {
     if (itemData.content !== value) {
       setItemData({ ...itemData, content: value });
     }
   };
 
-  // Handle form submission
   const onFormSubmit = (e) => {
     e.preventDefault();
 
@@ -50,14 +47,14 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
 
     const updateData = {
       title: itemData.title.trim(),
-      content: itemData.content || "", // Ensure content is not undefined
+      content: itemData.content || "",
       category_id: parseInt(itemData.category_id, 10),
       tags: itemData.tags || [],
       entry_paths: itemData.paths?.entry || [],
       exit_paths: itemData.paths?.exit || [],
       counter_for: itemData.paths?.counter_for || [],
       can_be_countered_by: itemData.paths?.can_be_countered_by || [],
-      user_id: 1 // Hardcoded user ID for now
+      user_id: 1
     };
 
     handleSubmit(updateData);
@@ -68,7 +65,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
       <form className="notes-form__form" onSubmit={onFormSubmit}>
         <div className='notes-form__form-container'>
           <div className='notes-form__left-container'>
-            {/* Title Input */}
             <div className="notes-form__field">
               <label className="notes-form__label" htmlFor="title">Title*</label>
               <input
@@ -81,7 +77,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
               />
             </div>
 
-            {/* Category Selection */}
             <div className="notes-form__field">
               <label className="notes-form__label" htmlFor="category">Category*</label>
               <select
@@ -99,18 +94,16 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
               </select>
             </div>
 
-            {/* Rich Text Editor for Content */}
             <div className="notes-form__field">
               <label className="notes-form__label" htmlFor="content">Content</label>
               <RichTextEditor
                 className="notes-form__textarea"
-                value={itemData.content || ''} // Ensure default value is a string
+                value={itemData.content || ''}
                 onChange={handleContentChange}
               />
             </div>
           </div>
           <div className='notes-form__right-container'>
-            {/* MultiSelectInputs */}
             <MultiSelectInput label="Tags" placeholder="Add a tag" options={[]} selectedItems={itemData.tags || []}
               onAddItem={(item) => setItemData({ ...itemData, tags: [...(itemData.tags || []), item] })}
               onRemoveItem={(item) => setItemData({ ...itemData, tags: (itemData.tags || []).filter(tag => tag !== item) })}
@@ -165,7 +158,6 @@ function NotesForm({ itemData, setItemData, handleSubmit, submitButtonText }) {
             />
           </div>
         </div>
-        {/* Form Buttons */}
         <div className="notes-form__buttons">
           <button type="button" className="notes-form__button notes-form__button--cancel" onClick={() => navigate(-1)}>
             Cancel

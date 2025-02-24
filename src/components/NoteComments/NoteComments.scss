@@ -1,7 +1,6 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-// Comments Section Styles
 .comments {
     background-color: $color-background-primary;
     @include tablet {
@@ -17,7 +16,6 @@
     }
   }
   
-  // Single Comment Styles
   .comment {
     background-color: $color-background-alt2;
     border: 1px solid $color-border;
@@ -50,34 +48,3 @@
       line-height: 1.4;
     }
   }
-  
-//   // Responsive adjustments for Tablet
-//   @media (min-width: $tablet-screen) {
-//     .comment {
-//       padding: 1.5rem;
-  
-//       &__info {
-//         font-size: 1rem;
-//       }
-  
-//       &__comment {
-//         font-size: 1.125rem;
-//       }
-//     }
-//   }
-  
-//   // Responsive adjustments for Desktop
-//   @media (min-width: $desktop-screen) {
-//     .comments {
-//       padding: 2rem;
-//     }
-  
-//     .comment {
-//       padding: 2rem;
-  
-//       &__comment {
-//         font-size: 1.25rem;
-//       }
-//     }
-//   }
-  

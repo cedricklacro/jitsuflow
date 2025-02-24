@@ -11,7 +11,6 @@ function NotesEditPage() {
   const params = useParams();
   const navigate = useNavigate();
 
-  // Fetch note details (including transforming paths) from the backend
   const getNoteDetails = async () => {
     try {
       const response = await axios.get(`${baseUrl}/notes/${params.noteid}`);
@@ -19,7 +18,6 @@ function NotesEditPage() {
       setNoteDetails({
         ...data,
         tags: data.tags || [],
-        // Transform paths arrays into arrays of strings for the form
         paths: {
           entry: data.paths?.entry ? data.paths.entry.map(item => item.title) : [],
           exit: data.paths?.exit ? data.paths.exit.map(item => item.title) : [],
@@ -36,7 +34,6 @@ function NotesEditPage() {
     getNoteDetails();
   }, [params.noteid]);
 
-  // This function receives the built updateData from NotesForm after validation.
   const handleSubmit = async (updateData) => {
     try {
       await axios.put(`${baseUrl}/notes/${params.noteid}`, updateData);
