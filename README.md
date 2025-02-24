@@ -1,4 +1,22 @@
-# 🥋 Jitsu Flow  
+# 🥋 Jitsu Flow
+
+## 📸 MVP Snapshots  
+
+### 🏷 Menu Page  
+![](/notes-menu.png)  
+The menu page provides an overview of **note categories and a list of saved notes**, helping users quickly navigate between different techniques and training insights.  
+
+### 📜 Details Page  
+![](/notes-details.png)  
+The details page displays **full note content**, including **rolling notes and reflections** added by the user, making it easier to track progress over time.  
+
+### ➕ Add Page  
+![](/notes-add.png)  
+The add page starts with **a blank slate**, allowing users to create a new note from scratch. Users can **upload images, embed links, and select paths from a dropdown list** or create a **new path**, which automatically generates a new note for future reference. This makes structuring notes more intuitive and efficient.  
+
+### ✏️ Edit Page  
+![](/notes-edit.png)  
+The edit page provides a **pre-filled version of an existing note**, enabling users to modify content, update references, and refine details while retaining all previous data. It offers the same functionality as the add page, making it easy to adjust and expand training notes.  
 
 ## 📌 Overview  
 
@@ -83,6 +101,37 @@ The **MVP** (Minimum Viable Product) focuses on the **note-taking feature** to p
 
 ---
 
+## 🚀 Installation Instructions  
+
+Follow these steps to install and run **Jitsu Flow** locally:  
+
+### **Prerequisites**  
+Make sure you have the following installed on your system:  
+- [Node.js](https://nodejs.org/) (Latest LTS version recommended)  
+- [Git](https://git-scm.com/) (Optional but recommended for version control)  
+
+### **Clone the Repository**  
+```sh  
+git clone https://github.com/yourusername/jitsu-flow.git  
+cd jitsu-flow  
+```
+
+### **Install Dependencies**  
+```sh  
+npm install  
+```
+
+### **Run the Development Server**  
+```sh  
+npm run dev  
+```
+This will start the project on **http://localhost:5173/** (default Vite port).
+
+### **Set Up and Run the Backend Server**  
+Jitsu Flow also requires a backend server to function correctly. Clone and set up the backend by following the instructions in the repository below:  
+
+[🔗 Jitsu Flow Backend Repository](https://github.com/cedricklacro/jitsuflow-server)  
+
 ## 📢 Final Thoughts  
 
 Jitsu Flow is more than just a **gym management app**—it's a **training companion** that helps students **retain, structure, and apply** their lessons in Jiu-Jitsu. By focusing on **interactive note-taking and flow visualization**, this project aims to **enhance the way students learn and track their progression.**  
@@ -119,23 +168,8 @@ Jitsu Flow is more than just a **gym management app**—it's a **training compan
 
 ### Data
 
-### Endpoints
-
-**Get /notes**
-
-**Get /notes/:noteid**
-
-**Post /notes/:noteid**
-
-**Get /flows/**
-
-**Get /flows/:flowid**
-
 ## Roadmap
 - Create client
 - Create server
 - Create migrations
 - Create seeds with sample notes
-
-## Nice-to-haves
-- 
