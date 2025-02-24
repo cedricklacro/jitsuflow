@@ -4,7 +4,6 @@
 .add-note {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     @include desktop {
         width: 100%;
     }
