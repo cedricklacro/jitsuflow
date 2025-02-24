@@ -71,6 +71,17 @@
     @include tablet {
         height: 100%;
     }
+    & img {
+      max-width: 264px;
+      width: auto;
+      height: auto;
+      @include tablet {
+        max-width: 435.53px;
+      }
+      @include desktop {
+        max-width: 500px;
+      }
+    }
   }
 
   &__right-container {
