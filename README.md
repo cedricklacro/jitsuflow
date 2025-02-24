@@ -3,19 +3,19 @@
 ## 📸 MVP Snapshots  
 
 ### 🏷 Menu Page  
-![](/notes-menu.png)  
+![](./assets/images/notes-menu.png)
 The menu page provides an overview of **note categories and a list of saved notes**, helping users quickly navigate between different techniques and training insights.  
 
 ### 📜 Details Page  
-![](/notes-details.png)  
+![](./assets/images/notes-details.png)
 The details page displays **full note content**, including **rolling notes and reflections** added by the user, making it easier to track progress over time.  
 
 ### ➕ Add Page  
-![](/notes-add.png)  
+![](./assets/images/notes-edit.png)
 The add page starts with **a blank slate**, allowing users to create a new note from scratch. Users can **upload images, embed links, and select paths from a dropdown list** or create a **new path**, which automatically generates a new note for future reference. This makes structuring notes more intuitive and efficient.  
 
 ### ✏️ Edit Page  
-![](/notes-edit.png)  
+![](./assets/images/notes-add.png)
 The edit page provides a **pre-filled version of an existing note**, enabling users to modify content, update references, and refine details while retaining all previous data. It offers the same functionality as the add page, making it easy to adjust and expand training notes.  
 
 ## 📌 Overview  
