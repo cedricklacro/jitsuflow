@@ -4,7 +4,7 @@
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+
     @include desktop {
         width: 100%;
     }
@@ -12,8 +12,7 @@
     &__main-container {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        
+
         @include tablet {
             flex-direction: row;
         }
@@ -28,11 +27,14 @@
         border-radius: 0 0 8px 8px;
         border: 1px solid $color-border;
         width: 100%;
+        @include tablet {
+            width: 30%;
+        }
 
         @include desktop {
-            padding: 2rem;
+            padding: 1rem 1rem 1rem 10.625rem;
             height: 100vh;
-            width: 35vw;
+            width: 40vw;
             border-radius: 0;
             border-right: 1px solid $color-border;
         }
@@ -48,22 +50,30 @@
 
     &__category-list {
         display: flex;
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 0.75rem;
+        @include tablet {
+            flex-direction: column;
+        }
     }
 
     &__category {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0.75rem;
+        padding: 0.2rem 0.6rem;
         background-color: lighten($color-background-primary, 5%);
         border-radius: 6px;
         font-size: 1rem;
         font-weight: 500;
         cursor: pointer;
         transition: background-color 0.2s ease, transform 0.1s ease;
+
+        @include tablet {
+            width: 100%;
+            padding: 0.75rem;
+        }
 
         &:hover {
             background-color: $color-accent-alt;
@@ -73,7 +83,7 @@
 
         &:active {
             transform: scale(0.98);
-        }
+        }        
     }
 
     // Notes List Section
@@ -102,8 +112,11 @@
     gap: 1rem;
 
     &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         background-color: lighten($color-background-alt, 3%);
-        padding: 1rem;
+        padding: 0.75rem 1rem;
         border-radius: 6px;
         cursor: pointer;
         transition: background-color 0.2s ease, transform 0.1s ease;
@@ -135,7 +148,7 @@
     }
 
     &__tag {
-        background-color: $color-background-alt;
+        background-color: $color-background-primary;
         border: 1px solid $color-border;
         border-radius: 12px;
         padding: 0.25rem 0.75rem;
