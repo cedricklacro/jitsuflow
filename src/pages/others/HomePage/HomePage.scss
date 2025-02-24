@@ -1,7 +1,7 @@
 @use '../../../styles/partials/variables' as *;
 @use '../../../styles/partials/mixins' as *;
 
-.not-found {
+.homepage {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -45,6 +45,14 @@
         font-weight: bold;
         color: $color-text-primary;
     }
+
+    &__content {
+        font-family: $font-body;
+        font-size: 1rem;
+        color: $color-text-alt;
+        line-height: 1.5;
+    }
+
     &__link {
         display: inline-block;
         font-family: $font-body;

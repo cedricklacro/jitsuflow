@@ -7,6 +7,11 @@ import NotesDetailsPage from './pages/notes/NotesDetailsPage/NotesDetailsPage';
 import NotesEditPage from './pages/notes/NotesEditPage/NotesEditPage';
 import NotFoundPage from './pages/others/NotFoundPage/NotFoundPage';
 import Header from './components/Header/Header';
+import HomePage from './pages/others/HomePage/HomePage';
+import ProfilePage from './pages/others/ProfilePage/ProfilePage';
+import FlowBuilder from './pages/others/FlowBuilderPage/FlowBuilderPage';
+import BillingPage from './pages/others/BillingPage/BillingPage';
+import LogoutPage from './pages/others/LogoutPage/LogoutPage';
 
 function App() {
 
@@ -14,15 +19,15 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<UnderConstructionPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/jitsujournal" element={<NotesMenuPage />} />
         <Route path="/jitsujournal/add" element={<NotesAddPage />} />
         <Route path="/jitsujournal/:noteid" element={<NotesDetailsPage />} />
         <Route path="/jitsujournal/:noteid/edit" element={<NotesEditPage />} />
-        <Route path="/profile" element={<UnderConstructionPage />} />
-        <Route path="/flowbuilder" element={<UnderConstructionPage />} />
-        <Route path="/billing" element={<UnderConstructionPage />} />
-        <Route path="log-out" element={<UnderConstructionPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/flowbuilder" element={<FlowBuilder />} />
+        <Route path="/billing" element={<BillingPage />} />
+        <Route path="log-out" element={<LogoutPage />} />
         <Route path="/not-found" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} /> 
       </Routes>
