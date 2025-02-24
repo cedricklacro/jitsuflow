@@ -49,6 +49,11 @@
       outline: none;
       border-color: $color-accent-alt;
     }
+    & img {
+      max-width: 600px; /* Limits width to 600px */
+      width: auto;
+      height: auto;
+    }
   }
 
   &__textarea {
