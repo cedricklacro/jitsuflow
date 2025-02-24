@@ -1,0 +1,83 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+// Comments Section Styles
+.comments {
+    background-color: $color-background-primary;
+    @include tablet {
+        min-width: 62%;
+    }
+  
+    &__count {
+      font-family: $font-header;
+      font-size: 1.5rem;
+      color: $color-text-primary;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+  }
+  
+  // Single Comment Styles
+  .comment {
+    background-color: $color-background-alt2;
+    border: 1px solid $color-border;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  
+    &__toprow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__info {
+      font-family: $font-body;
+      font-size: 0.875rem;
+      color: $color-text-alt;
+      margin-right: 1rem;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  
+    &__comment {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $color-text-primary;
+      line-height: 1.4;
+    }
+  }
+  
+//   // Responsive adjustments for Tablet
+//   @media (min-width: $tablet-screen) {
+//     .comment {
+//       padding: 1.5rem;
+  
+//       &__info {
+//         font-size: 1rem;
+//       }
+  
+//       &__comment {
+//         font-size: 1.125rem;
+//       }
+//     }
+//   }
+  
+//   // Responsive adjustments for Desktop
+//   @media (min-width: $desktop-screen) {
+//     .comments {
+//       padding: 2rem;
+//     }
+  
+//     .comment {
+//       padding: 2rem;
+  
+//       &__comment {
+//         font-size: 1.25rem;
+//       }
+//     }
+//   }
+  

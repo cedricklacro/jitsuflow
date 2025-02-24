@@ -22,9 +22,9 @@ function NoteComments({noteid}) {
 
   return (
     <section className="comments">
-      <span className="comments__count">
-        {`${comments.length} ${comments.length === 1 ? "Comment" : "Comments"}`}
-      </span>
+      <h4 className="comments__count">
+        {`${comments.length} ${comments.length === 1 ? "Rolling Note" : "Rolling Notes"}`}
+      </h4>
       {comments.map((comment) => (
         <div className="comment" key={comment.comment_id}>
           <div className="comment__toprow">
