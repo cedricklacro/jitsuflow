@@ -27,51 +27,54 @@ function NotesDetailsPage() {
   }, [params.noteid]);
 
   return (
-    <section>
-      <PageHeader title={noteDetails.title} type="withback"/>
-      <main className='note'>
-        <img className='note__editicon' src={editicon} onClick={() => navigate(`/jitsujournal/${params.noteid}/edit`)} alt='edit icon' />
-        <span className='note__category-container'>
-          <h4 className='note__category-label'>Category</h4>
-          <p className='note__category'>{noteDetails.category_name}</p>
-        </span>
-        <span className='note_content'>{noteDetails.content}</span>
-        {noteDetails.tags && noteDetails.tags.map((tag, index) => (
-          <li className='note__tags' key={index}>{tag}</li>
-        ))}
-        {/* paths here */}
-        {noteDetails.paths && (
-          <div className="note__paths">
-            {["entry", "exit", "counter_for", "can_be_countered_by"].map((pathType) => (
-              <div key={pathType} className={`note__path-${pathType}`}>
-                <h4>
-                  {pathType
-                    .split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
-                </h4>
-                {noteDetails.paths[pathType] && noteDetails.paths[pathType].length > 0 ? (
-                  <ul>
-                    {noteDetails.paths[pathType].map((path, index) => (
-                      <li key={index}>
-                        <span 
-                          className="clickable-path" 
-                          style={{ cursor: 'pointer', textDecoration: 'underline', color: 'blue' }}
-                          onClick={() => navigate(`/jitsujournal/${path.note_id}`)}
-                        >
-                          {path.title}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>Nothing was set</p>
-                )}
-              </div>
-            ))}
+    <>
+      <main className='page'>
+        <PageHeader title={noteDetails.title} type="notedetails" id={params.noteid} />
+        <section className='note'>
+          <div className='note__left-container'>
+            <span className='note__category-container'>
+              <h4 className='note__category-label'>CATEGORY:</h4>
+              <p className='note__label'>{noteDetails.category_name}</p>
+            </span>
+            <span className='note__content'>{noteDetails.content}</span>
           </div>
-        )}
-        <NoteCommentForm noteid={params.noteid}/>
+          <div className='note__right-container'>
+            <span className='note__tags-container'>
+              <h4 className='note__label'>TAGS: </h4>
+              {noteDetails.tags && noteDetails.tags.map((tag, index) => (
+                <li className='note__tag' key={index}>{tag}</li>
+              ))}
+            </span>
+            {noteDetails.paths && (
+              <div className="note__paths-container">
+                <h4 className='note__label--path'>PATHS: </h4>
+                {["entry", "exit", "counter_for", "can_be_countered_by"].map((pathType) => (
+                  <div key={pathType} className={`note__path-box`}>
+                    <h4 className='note__label'>
+                      {pathType
+                        .split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
+                    </h4>
+                    <ul className='note__paths'>
+                      {noteDetails.paths[pathType] && noteDetails.paths[pathType].length > 0
+                        ? noteDetails.paths[pathType].map((path, index) => (
+                          <li key={index} className="note__path" onClick={() => navigate(`/jitsujournal/${path.note_id}`)} >
+                            {path.title}
+                          </li>
+                        ))
+                        : <li className="note__path--empty">
+                          <p>Nothing was set</p>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+        <NoteCommentForm noteid={params.noteid} />
       </main>
-    </section>
+    </>
   )
 }
 

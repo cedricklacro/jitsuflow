@@ -1,8 +1,159 @@
 @use '../../../styles/partials/variables' as *;
 @use '../../../styles/partials/mixins' as *;
 
-.note {
+.page {
     display: flex;
     flex-direction: column;
-    
+    @include desktop {
+        width: 100%;
+    }
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: $color-background-alt2;
+  border-top: 1px solid $color-border;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  @include desktop {
+    padding: 1rem 1.5rem 1.5rem 10.625rem;
+  }
+
+  &__left-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    @include tablet {
+      min-width: 62%;
+    }
+  }
+
+  // Category and content styles
+  &__category-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .note__category-label {
+      font-family: $font-header;
+      font-weight: bold;
+      font-size: 1rem;
+      color: $color-text-primary;
+    }
+
+    .note__label {
+      font-family: $font-body;
+      font-size: 0.95rem;
+      color: $color-text-alt;
+    }
+  }
+  
+  &__content {
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 8px;
+    color: $color-text-alt;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    @include tablet {
+        height: 100%;
+    }
+  }
+
+  &__right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  // Tag styling
+  &__tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+
+    .note__label {
+      font-family: $font-header;
+      font-weight: bold;
+      font-size: 1rem;
+      color: $color-text-primary;
+    }
+  }
+  
+  &__tag {
+    padding: 0.25rem 0.75rem;
+    background-color: $color-background-primary;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    color: $color-text-alt;
+  }
+
+  // Paths container styling
+  &__paths-container {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: $color-background-primary;
+
+    .note__label--path {
+      font-family: $font-header;
+      font-weight: bold;
+      font-size: 1rem;
+      color: $color-text-primary;
+    }
+  }
+
+  &__path-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-left: 1.5rem;
+  }
+
+  &__paths {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-left: 1.5rem;
+  }
+  
+  &__path {
+    cursor: pointer;
+    color: $color-link;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: darken($color-link, 10%);
+    }
+  }
+
+  .note__path--empty {
+    font-family: $font-body;
+    font-size: 0.9rem;
+    color: $color-text-alt;
+    font-style: italic;
+  }
 }
