@@ -1,2 +1,11 @@
 @use '../../../styles/partials/variables' as *;
 @use '../../../styles/partials/mixins' as *;
+
+.add-note {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include desktop {
+        width: 100%;
+    }
+}
